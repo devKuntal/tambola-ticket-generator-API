@@ -1,0 +1,144 @@
+{
+    "client": "Thunder Client",
+    "collectionName": "tambolaTicket",
+    "dateExported": "2023-05-19T23:33:02.058Z",
+    "version": "1.1",
+    "folders": [
+        {
+            "_id": "2a4b4581-89ee-4ef9-9064-7be5910110cf",
+            "name": "authRoutes",
+            "containerId": "",
+            "created": "2023-05-19T14:48:35.167Z",
+            "sortNum": 10000
+        },
+        {
+            "_id": "d9e9b8bf-f2cb-4058-b2e2-d07b26bfcc5c",
+            "name": "ticketRoutes",
+            "containerId": "",
+            "created": "2023-05-19T19:29:35.691Z",
+            "sortNum": 20000
+        }
+    ],
+    "requests": [
+        {
+            "_id": "9ae653c2-b561-41b4-b3f2-b34917e4a1da",
+            "colId": "a20b9c5a-b860-4652-a7db-2133336779de",
+            "containerId": "2a4b4581-89ee-4ef9-9064-7be5910110cf",
+            "name": "register",
+            "url": "http://localhost:5000/auth/register",
+            "method": "POST",
+            "sortNum": 20000,
+            "created": "2023-05-19T14:48:50.399Z",
+            "modified": "2023-05-19T14:53:00.585Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"name\": \"user\",\n  \"email\": \"user@email.com\",\n  \"password\":\"secret\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "dfc09727-ce15-4160-b392-3568f3022265",
+            "colId": "a20b9c5a-b860-4652-a7db-2133336779de",
+            "containerId": "d9e9b8bf-f2cb-4058-b2e2-d07b26bfcc5c",
+            "name": "createTicket",
+            "url": "http://localhost:5000/tickets",
+            "method": "POST",
+            "sortNum": 30000,
+            "created": "2023-05-19T19:29:53.012Z",
+            "modified": "2023-05-19T22:57:56.186Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"number\":\"1\"\n}",
+                "form": []
+            },
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "password"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "072e6964-45b5-4ef8-9dd8-45a06bb2bb79",
+            "colId": "a20b9c5a-b860-4652-a7db-2133336779de",
+            "containerId": "d9e9b8bf-f2cb-4058-b2e2-d07b26bfcc5c",
+            "name": "viewTickets",
+            "url": "http://localhost:5000/tickets",
+            "method": "GET",
+            "sortNum": 40000,
+            "created": "2023-05-19T19:33:45.123Z",
+            "modified": "2023-05-19T23:06:57.664Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": ""
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "33d4e884-1794-4b2e-b66b-cdb209ae845e",
+            "colId": "a20b9c5a-b860-4652-a7db-2133336779de",
+            "containerId": "d9e9b8bf-f2cb-4058-b2e2-d07b26bfcc5c",
+            "name": "deleteTicket",
+            "url": "http://localhost:5000/tickets/6467fd5e7e4a888b9cdda00d",
+            "method": "DELETE",
+            "sortNum": 50000,
+            "created": "2023-05-19T19:34:21.624Z",
+            "modified": "2023-05-19T23:01:07.044Z",
+            "headers": [],
+            "params": [],
+            "auth": {
+                "type": "basic",
+                "basic": {
+                    "username": "user",
+                    "password": "password"
+                }
+            },
+            "tests": []
+        },
+        {
+            "_id": "15bf0eff-88b9-4ce5-807f-499f8464ea29",
+            "colId": "a20b9c5a-b860-4652-a7db-2133336779de",
+            "containerId": "2a4b4581-89ee-4ef9-9064-7be5910110cf",
+            "name": "login",
+            "url": "http://localhost:5000/auth/login",
+            "method": "POST",
+            "sortNum": 70000,
+            "created": "2023-05-19T20:16:03.532Z",
+            "modified": "2023-05-19T23:13:58.080Z",
+            "headers": [],
+            "params": [],
+            "body": {
+                "type": "json",
+                "raw": "{\n  \"email\":\"userone@email.com\",\n  \"password\":\"password\"\n}",
+                "form": []
+            },
+            "tests": []
+        },
+        {
+            "_id": "f61d1076-d2b5-4b50-a614-a0b21b4248b6",
+            "colId": "a20b9c5a-b860-4652-a7db-2133336779de",
+            "containerId": "2a4b4581-89ee-4ef9-9064-7be5910110cf",
+            "name": "logout",
+            "url": "http://localhost:5000/auth/logout",
+            "method": "GET",
+            "sortNum": 80000,
+            "created": "2023-05-19T23:07:21.589Z",
+            "modified": "2023-05-19T23:08:19.230Z",
+            "headers": [],
+            "params": [],
+            "tests": []
+        }
+    ]
+}
