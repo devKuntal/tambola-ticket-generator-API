@@ -6,19 +6,25 @@ All Tickets routs are protected and you have to register first to generate ticke
 
 ## All Authentication routes
 
-### POST /Register
+### POST _/register_
 
 ```
 http://localhost:5000/auth/register
 ```
 
-### POST /login
+### POST _/login_
 
 ```
 http://localhost:5000/auth/login
 ```
 
-### GET /logout
+### PATCH _/updateUser_
+
+```
+http://localhost:5000/auth/updateUser
+```
+
+### GET _/logout_
 
 ```
 http://localhost:5000/auth/logout
@@ -26,19 +32,19 @@ http://localhost:5000/auth/logout
 
 ## Ticket Generation routes
 
-### Create POST /tickets
+### Create POST _/tickets_
 
 ```
 http://localhost:5000/tickets
 ```
 
-### Read GET /tickets
+### Read GET _/tickets_
 
 ```
 http://localhost:5000/tickets
 ```
 
-### Delete DELETE /tickets
+### Delete DELETE _/tickets_
 
 ```
 http://localhost:5000/tickets/:id

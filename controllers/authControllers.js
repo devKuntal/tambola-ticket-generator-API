@@ -62,6 +62,29 @@ const login = async(req,res,next) =>{
   res.status(StatusCodes.OK).json({ user });
 }
 
+//update user controller
+const updateUser = async (req, res, next) => {
+    // get info from request body
+  const { email, name} = req.body;
+  // check both are present
+  if (!email || !name) {
+    throw new BadRequestError("Please provide all values");
+  }
+  // get the user
+  const user = await User.findOne({ _id: req.user.userId });
+  // set the value
+  user.email = email;
+  user.name = name;
+  // save user after update
+  await user.save();
+  // create token
+  const token = user.createJWT();
+  attachCookie({res, token})
+  // send response
+  res.status(StatusCodes.OK).json({ user });
+};
+
+
 // Get the user
 const getCurrentUser = async(req,res) => {
   const user = await User.findOne({_id: req.user.userId})
@@ -77,4 +100,4 @@ const logout =async(req,res)=> {
   res.status(StatusCodes.OK).json({msg: 'User logged out!'})
 }
 
-export { register, login, getCurrentUser, logout };
+export { register, login, updateUser, getCurrentUser, logout };
