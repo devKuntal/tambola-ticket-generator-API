@@ -13,43 +13,43 @@ Tambola ticket generatation rule:
 // Generate Random Tambola ticket
 const generateTicket = function generateTicket(number) {
   let tickets = [];
-  for (let i=0; i<number; i++){
-  let flag = true;
-  // continue generate tickets until valid one is found
-  while (flag) {
-    //define column
-    let column = Array(9).fill(2);
-    // define the ticket array
-    var ticket = Array(3)
-      .fill(0)
-      .map(() => new Array(9).fill(0));
-    // randomly choose 3 column to have only one number filled to make sure no column is empty
-    let random = generateRandomNumber(0, 8, 3);
-    for (let i = 0; i < random.length; i++) {
-      column[random[i]] = 1;
-    }
-    // for each column  choosing random number to fill it
-    let columnWrapper = [];
-    for (let i = 0; i < column.length; i++) {
-      columnWrapper.push(generateRandomNumber(0, 2, column[i]));
-    }
-    for (let i = 0; i < columnWrapper.length; i++) {
-      // generating random number as per requirement
-      let min = i === 0 ? i * 10 + 1 : i * 10;
-      let max = i * 10 + 9;
-      let number = generateRandomNumber(min, max, columnWrapper[i].length);
-      for (let j = 0; j < columnWrapper[i].length; j++) {
-        ticket[columnWrapper[i][j]][i] = number[j];
+  for (let i = 0; i < number; i++) {
+    let flag = true;
+    // continue generate tickets until valid one is found
+    while (flag) {
+      //define column
+      let column = Array(9).fill(2);
+      // define the ticket array
+      var ticket = Array(3)
+        .fill(0)
+        .map(() => new Array(9).fill(0));
+      // randomly choose 3 column to have only one number filled to make sure no column is empty
+      let random = generateRandomNumber(0, 8, 3);
+      for (let i = 0; i < random.length; i++) {
+        column[random[i]] = 1;
       }
+      // for each column  choosing random number to fill it
+      let columnWrapper = [];
+      for (let i = 0; i < column.length; i++) {
+        columnWrapper.push(generateRandomNumber(0, 2, column[i]));
+      }
+      for (let i = 0; i < columnWrapper.length; i++) {
+        // generating random number as per requirement
+        let min = i === 0 ? i * 10 + 1 : i * 10;
+        let max = i * 10 + 9;
+        let number = generateRandomNumber(min, max, columnWrapper[i].length);
+        for (let j = 0; j < columnWrapper[i].length; j++) {
+          ticket[columnWrapper[i][j]][i] = number[j];
+        }
+      }
+      // check if the generated ticket is valid or not
+      flag = checkTicket(ticket);
     }
-    // check if the generated ticket is valid or not
-    flag = checkTicket(ticket);
+    // creating ticket array
+    tickets.push(ticket);
   }
-  // creating ticket array
- tickets.push(ticket)
-}
- return tickets;
-}
+  return tickets;
+};
 
 // Helper function to generate random number
 function generateRandomNumber(min, max, count, sort = true) {
@@ -88,4 +88,4 @@ function checkTicket(ticket) {
   return false;
 }
 
-export default generateTicket
+export default generateTicket;
